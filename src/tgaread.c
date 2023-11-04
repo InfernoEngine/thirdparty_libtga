@@ -21,7 +21,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <strings.h>
+#include <string.h>
 #include <tga.h>
 #include "tga_private.h"
 
@@ -290,7 +290,7 @@ TGAReadRLE(TGA   *tga,
 
 	tbyte packet_head;
 	const tbyte sample_bytes = tga->hdr.depth / 8;
-	tbyte sample[sample_bytes];
+	tbyte* sample = (tbyte*)_alloca(sample_bytes);
 	tbyte repetition = 0;
 	tbyte raw = 0;
 
